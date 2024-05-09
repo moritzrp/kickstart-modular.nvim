@@ -136,6 +136,8 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, '[T]oggle Inlay [H]ints')
           end
+
+          require('lsp_signature').on_attach({}, event.buf)
         end,
       })
 
@@ -158,7 +160,8 @@ return {
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
+        ruff = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
